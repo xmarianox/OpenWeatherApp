@@ -4,7 +4,6 @@ Aplicación de prueba para ser evaluada.
 La información es provista por la API REST de [OpenWeatherMap](http://openweathermap.org/).
 
 ## Dependencias utilizadas:
-- [OpenWeatherMap](http://openweathermap.org/).
 - [Picasso](http://square.github.io/picasso/).
 
 ## Desarrollada por:
