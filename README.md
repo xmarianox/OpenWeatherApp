@@ -7,7 +7,7 @@ La información es provista por la API REST de [OpenWeatherMap](http://openweath
 - [Picasso](http://square.github.io/picasso/).
 
 ## Desarrollada por:
-- Mariano  [@xsincrueldadx](https://twitter.com/xsincrueldadx)
+- Mariano Molina [@xsincrueldadx](https://twitter.com/xsincrueldadx)
 
 ## License
 
