@@ -15,8 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.squareup.picasso.Picasso;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -31,7 +29,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import la.funka.openweather.model.Forecast;
-import la.funka.openweather.utils.Utility;
 
 public class WeekForecastFragment extends Fragment {
 
@@ -40,8 +37,8 @@ public class WeekForecastFragment extends Fragment {
     private RecyclerView listaForecast;
     private ArrayList<Forecast> datasetForecast = new ArrayList<Forecast>();
     private ForecastAdapter forecastAdapter;
-    // Refresh
-    private SwipeRefreshLayout swipeRefreshLayout = null;
+    // Progress
+    ProgressDialog progressDialog;
 
     public WeekForecastFragment() {
     }
@@ -60,19 +57,6 @@ public class WeekForecastFragment extends Fragment {
         // Load Data
         final String URL_API = "http://api.openweathermap.org/data/2.5/forecast/daily?id="+ CITY_ID +"&units=metric&cnt=7";
         new GetForecastTask().execute(URL_API);
-
-        // Refresh Forecast
-        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh);
-        swipeRefreshLayout.setColorSchemeColors(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new GetForecastTask().execute(URL_API);
-            }
-        });
 
         // Set RecyclerView
         listaForecast = (RecyclerView) rootView.findViewById(R.id.list_forecast);
@@ -95,6 +79,7 @@ public class WeekForecastFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            progressDialog = ProgressDialog.show(getActivity(), "Descargando datos del clima", "Espere un momento...", true);
         }
 
         @Override
@@ -128,6 +113,7 @@ public class WeekForecastFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String resultado) {
+            progressDialog.dismiss();
 
             try {
                 JSONObject jsonObject = new JSONObject(resultado);
@@ -160,9 +146,6 @@ public class WeekForecastFragment extends Fragment {
                     datasetForecast.add(forecast);
                 }
 
-                if (swipeRefreshLayout.isRefreshing()) {
-                    swipeRefreshLayout.setRefreshing(false);
-                }
                 forecastAdapter.notifyDataSetChanged();
 
             } catch (JSONException e) {
