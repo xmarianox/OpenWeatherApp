@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Open Weather</string>
+    <string name="title_tag">Select City</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_weather_city">WeatherCityActivity</string>
+    <string name="btn_open_forecast">View Forecast</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_week_forecast">WeekForecastActivity</string>
+</resources>

@@ -1,0 +1,58 @@
+[
+	{
+		"id": 3435910,
+		"name": "Buenos Aires",
+		"country": "AR",
+		"lat": -34.61,
+		"lon": -58.38
+	},
+	{
+		"id": 5128581,
+		"name": "New York",
+		"country": "US",
+		"lat": -40.71,
+		"lon": -74.01
+	},
+	{
+		"id": 3169070,
+		"name": "Roma",
+		"country": "IT",
+		"lat": 41.89,
+		"lon": 12.48
+	},
+	{
+		"id": 3128760,
+		"name": "Barcelona",
+		"country": "ES",
+		"lat": 41.39,
+		"lon": 2.16
+	},
+	{
+		"id": 2643743,
+		"name": "London",
+		"country": "GB",
+		"lat": 51.51,
+		"lon": -0.13
+	},
+	{
+		"id": 3646738,
+		"name": "Caracas",
+		"country": "VE",
+		"lat": 10.49,
+		"lon": -66.88
+	},
+	{
+		"id": 2988507,
+		"name": "Paris",
+		"country": "FR",
+		"lat": 48.85,
+		"lon": 2.35
+	},
+	{
+		"id": 3143244,
+		"name": "Oslo",
+		"country": "NO",
+		"lat": 59.91,
+		"lon": 10.75
+	}
+]
